@@ -49,18 +49,18 @@ jobs:
         
       - name: Terraform init
         run: terraform init
-        working-directory: terraform-aws-lambda/examples/triggers/
+        working-directory: ../../examples/triggers/
       
       - name: Terraform validate
         run: terraform validate -no-color
-        working-directory: terraform-aws-lambda/examples/triggers/
+        working-directory: ../../examples/triggers/
         
       - name: Terraform plan
         run: terraform plan -no-color
         continue-on-error: true
-        working-directory: terraform-aws-lambda/examples/triggers/
+        working-directory: ../../examples/triggers/
         
       - name: Terraform apply
         run: terraform apply -no-color -auto-approve
         continue-on-error: true
-        working-directory: terraform-aws-lambda/examples/triggers/
+        working-directory: ../../examples/triggers/
