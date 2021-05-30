@@ -6,7 +6,7 @@ name: Lambdabuild
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ judgeokoh-patch-1 ]
   pull_request:
     branches: [ master ]
 
@@ -46,29 +46,24 @@ jobs:
         uses: hashicorp/setup-terraform@v1.2.1
      
       - name: Terraform fmt
-        id: fmt
         run: terraform fmt
         continue-on-error: true
         working-directory: terraform-aws-lambda/examples/simple
         
       - name: Terraform init
-        id: init
         run: terraform init
         working-directory: terraform-aws-lambda/examples/simple
       
       - name: Terraform validate
-        id: validate
         run: terraform validate -no-color
         working-directory: terraform-aws-lambda/examples/simple
         
       - name: Terraform plan
-        id: plan
         run: terraform plan -no-color
         continue-on-error: true
         working-directory: terraform-aws-lambda/examples/simple
         
       - name: Terraform apply
-        id: apply
         run: terraform apply -no-color -auto-approve
         continue-on-error: true
         working-directory: terraform-aws-lambda/examples/simple
